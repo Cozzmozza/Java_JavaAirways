@@ -118,6 +118,11 @@ public class FlightTest {
         passengersTest.add(passenger1);
         assertEquals(passengersTest, flight.getPassengers());
     }
+    @Test
+    public void canAddFlightToPassengerClass(){
+        flight.addPassengerToFlight(passenger1);
+        assertEquals(flight, passenger1.getFlight());
+    }
 
 
 //       GETTER tests

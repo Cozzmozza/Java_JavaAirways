@@ -10,6 +10,8 @@ import java.util.Date;
 
 public class Flight {
 
+    private Flight flight;
+
 
     private ArrayList<CabinCrewMember> cabinCrew; // Pilot is included in cabin crew
     private Plane plane;
@@ -27,6 +29,7 @@ public class Flight {
         this.airportDeparture = airportDeparture;
         this.timeDeparture = timeDeparture;
         this.passengers = new ArrayList<>();
+        this.flight = flight;
     }
 
     public ArrayList<CabinCrewMember> getCabinCrew() {
@@ -71,6 +74,7 @@ public class Flight {
         if (!passengers.contains(passenger)) {
             if (getAvailableSeatsCount() >= 1) {
                 passengers.add(passenger);
+                passenger.setFlight(flight);
             }
         }
     }
