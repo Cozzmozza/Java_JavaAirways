@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -125,6 +126,22 @@ public class FlightTest {
     public void canAddFlightNumToPassengerClass(){
         flight.addPassengerToFlight(passenger1);
         assertEquals("FR756", passenger1.getFlight());
+    }
+    @Test
+    public void canSetSeatsFromPlane(){
+        flight.setSeatsFromPlane();
+        HashMap<Integer, Passenger> seatsTest = new HashMap<>();
+        seatsTest.put(1, null);
+        seatsTest.put(2, null);
+        seatsTest.put(3, null);
+        seatsTest.put(4, null);
+        seatsTest.put(5, null);
+        assertEquals(seatsTest, flight.getSeats());
+    }
+    @Test
+    public void canAssignSeatToPassenger(){
+        flight.assignPassengerToSeat(passenger1);
+        assertEquals(1, passenger1.getSeatNumber());
     }
 
 

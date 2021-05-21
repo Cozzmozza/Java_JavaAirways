@@ -1,8 +1,10 @@
 package Aircraft;
 
+import java.util.ArrayList;
+
 public class Plane {
 
-    PlaneType plane;
+    private PlaneType plane;
 
     public Plane(PlaneType plane) {
         this.plane = plane;
@@ -20,9 +22,10 @@ public class Plane {
         return plane.getWeight();
     }
 
-    public double calculateTotalBaggageAllowanceInKg(){
+    public double calculateTotalBaggageAllowanceInKg() {
 //        baggage allowance is equal to 50% of the aircraft weight
 //        Converting to kg from tonne, for relative ease during later calculations
-        return plane.getWeight()*0.5*1000;
+        return plane.getWeight() * 0.5 * 1000;
     }
+
 }

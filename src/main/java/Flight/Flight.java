@@ -3,10 +3,10 @@ package Flight;
 import Aircraft.Plane;
 import People.CabinCrewMember;
 import People.Passenger;
-import People.Pilot;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Flight {
 
@@ -17,6 +17,7 @@ public class Flight {
     private String airportDeparture;
     private Date timeDeparture;
     private ArrayList<Passenger> passengers; // Default is empty
+    private HashMap<Integer, Passenger> planeSeats;
 
     public Flight(ArrayList<CabinCrewMember> cabinCrew, Plane plane, String flightNum, String airportDestination, String airportDeparture, Date timeDeparture) {
         this.cabinCrew = cabinCrew;
@@ -26,6 +27,7 @@ public class Flight {
         this.airportDeparture = airportDeparture;
         this.timeDeparture = timeDeparture;
         this.passengers = new ArrayList<>();
+        this.planeSeats = new HashMap<>();
 
     }
 
@@ -67,11 +69,34 @@ public class Flight {
         return totalCapacity - numPassengers;
     }
 
+    public void setSeatsFromPlane(){
+        for (int i=0; i <= plane.getPlaneCapacityFromEnum(); i++){
+            planeSeats.put(i+1, null);
+            System.out.println("In for loop");
+        }
+    }
+
+    public HashMap getSeats(){
+        return planeSeats;
+    }
+
+    public void assignPassengerToSeat(Passenger passenger){
+        for (int i=0; i<=planeSeats.size(); i++) {
+            System.out.println("Loop starting");
+            if (planeSeats.containsValue(null)){
+                System.out.println("contains null");
+                planeSeats.replace(i+1, passenger);
+                return;
+            }
+        }
+    }
+
     public void addPassengerToFlight(Passenger passenger) {
         if (!passengers.contains(passenger)) {
             if (getAvailableSeatsCount() >= 1) {
                 passengers.add(passenger);
                 passenger.setFlight(flightNum);
+                assignPassengerToSeat(passenger);
             }
         }
     }

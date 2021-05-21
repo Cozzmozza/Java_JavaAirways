@@ -5,6 +5,8 @@ import Aircraft.PlaneType;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class PlaneTest {
@@ -36,3 +38,4 @@ public class PlaneTest {
         assertEquals(17525, plane.calculateTotalBaggageAllowanceInKg(), 0.01);
     }
 }
+
