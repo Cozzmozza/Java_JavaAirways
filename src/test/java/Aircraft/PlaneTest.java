@@ -30,4 +30,9 @@ public class PlaneTest {
     public void canGetPlaneWeight() {
         assertEquals(35.05, plane.getPlaneWeightFromEnum(), 0.01);
     }
+
+    @Test
+    public void canGetTotalBaggageAllowance(){
+        assertEquals(17525, plane.calculateTotalBaggageAllowanceInKg(), 0.01);
+    }
 }

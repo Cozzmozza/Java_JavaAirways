@@ -64,6 +64,7 @@ public class FlightTest {
     // can add 2 different passengers
     // can remove passenger to flight, check available seat count - DONE
     // can only remove passenger to flight if they exist on flight - DONE
+    // get passengers array list
 
     @Test
     public void canGetPassengerCount(){
@@ -113,6 +114,13 @@ public class FlightTest {
         flight.addPassengerToFlight(passenger2);
         flight.removePassengerFromFlight(passenger3);
         assertEquals(2, flight.getAvailableSeatsCount());
+    }
+    @Test
+    public void canGetPassengersArrayList(){
+        flight.addPassengerToFlight(passenger1);
+        ArrayList passengersTest = new ArrayList<>();
+        passengersTest.add(passenger1);
+        assertEquals(passengersTest, flight.getPassengers());
     }
 
 

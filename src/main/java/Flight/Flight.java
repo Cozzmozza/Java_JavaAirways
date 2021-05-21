@@ -79,4 +79,8 @@ public class Flight {
             passengers.remove(passenger);
         }
     }
+
+    public ArrayList getPassengers(){
+        return passengers;
+    }
 }

@@ -6,7 +6,7 @@ public enum PlaneType {
 //    We need to be able to get these
 
     BOEING747(3, 35.05),
-    BIGPLANE99(4, 50.56);
+    BIGPLANE99(4, 50.00);
 
     private final int passengerCapacity;
     private final double weight;

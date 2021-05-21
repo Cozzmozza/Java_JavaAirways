@@ -19,4 +19,10 @@ public class Plane {
     public double getPlaneWeightFromEnum() {
         return plane.getWeight();
     }
+
+    public double calculateTotalBaggageAllowanceInKg(){
+//        baggage allowance is equal to 50% of the aircraft weight
+//        Converting to kg from tonne, for relative ease during later calculations
+        return plane.getWeight()*0.5*1000;
+    }
 }
