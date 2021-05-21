@@ -11,6 +11,7 @@ public class FlightManager {
     private Plane plane;
     private double bagWeight;
     private ArrayList<Passenger> passengers;
+    double maxBaggageWeight;
 
 
     public FlightManager(Flight flight) {
@@ -18,6 +19,7 @@ public class FlightManager {
         this.plane = flight.getPlane();
         this.bagWeight = 2000;
         this.passengers = flight.getPassengers();
+        this.maxBaggageWeight = plane.calculateTotalBaggageAllowanceInKg();
     }
 
     public Flight getFlight() {
@@ -26,7 +28,6 @@ public class FlightManager {
 
     public double passengerBaggageWeightAllocation(){
         int capacity = plane.getPlaneCapacityFromEnum();
-        double maxBaggageWeight = plane.calculateTotalBaggageAllowanceInKg();
         double allowancePerPassenger = maxBaggageWeight / capacity;
         return allowancePerPassenger;
     }
@@ -39,8 +40,11 @@ public class FlightManager {
         return totalNumBags;
     }
 
-//    public double totalBaggageWeightBooked(){
-//
-//    }
+    public double calculateTotalBaggageWeight() {
+        return this.bagWeight * getTotalNumberOfBags();
+    }
 
+    public double calculateRemainingBaggageCapacity() {
+        return maxBaggageWeight - calculateTotalBaggageWeight();
+    }
 }
