@@ -5,7 +5,7 @@ import Flight.Flight;
 public class Passenger extends Person{
 
     private int numBags;
-    private Flight flight;
+    private String flightNum;
 
     public Passenger(String name, int numBags) {
         super(name);
@@ -16,11 +16,11 @@ public class Passenger extends Person{
         return numBags;
     }
 
-    public Flight getFlight(){
-        return flight;
+    public String getFlight(){
+        return flightNum;
     }
 
-    public void setFlight(Flight newFlight){
-        flight = newFlight;
+    public void setFlight(String flightNumber){
+        flightNum = flightNumber;
     }
 }

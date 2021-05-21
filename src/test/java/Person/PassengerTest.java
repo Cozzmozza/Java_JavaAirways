@@ -21,6 +21,7 @@ public class PassengerTest {
     private Date date;
     private Plane plane;
     private Passenger passenger1;
+    private String flightNum;
 
 
     @Before
@@ -31,10 +32,10 @@ public class PassengerTest {
         crew = new ArrayList<>();
         crew.add(member1);
         crew.add(pilot1);
-        passenger1 = new Passenger("Bob", 2);
         plane = new Plane(PlaneType.BIGPLANE99);
         date = new Date(2021, 5, 21, 16, 42);
-        flight = new Flight(crew, plane, "FR756", "LDN", "ABD", date );
+        flightNum = "FR756";
+        flight = new Flight(crew, plane, flightNum, "LDN", "ABD", date );
     }
 
     @Test
@@ -49,7 +50,7 @@ public class PassengerTest {
 
     @Test
     public void canAssignFlightToPassenger(){
-        passenger1.setFlight(flight);
-        assertEquals(flight, passenger1.getFlight());
+        passenger1.setFlight(flightNum);
+        assertEquals("FR756", passenger1.getFlight());
     }
 }

@@ -28,6 +28,7 @@ public class FlightTest {
     private Passenger passenger4;
     private Passenger passenger5;
     private Flight flight;
+    private String flightNum;
 
     @Before
     public void before(){
@@ -44,12 +45,14 @@ public class FlightTest {
         passenger3 = new Passenger("Maxi", 3);
         passenger4 = new Passenger("Yogi", 1);
         passenger5 = new Passenger("Toofy", 5);
+        flightNum = "FR756";
 
         plane = new Plane(PlaneType.BIGPLANE99);
 
         date = new Date(2021, 5, 21, 16, 42);
 
-        flight = new Flight(crew, plane, "FR756", "LDN", "ABD", date );
+        flight = new Flight(crew, plane, flightNum, "LDN", "ABD", date );
+
     }
 
 //    METHOD tests
@@ -119,9 +122,9 @@ public class FlightTest {
         assertEquals(passengersTest, flight.getPassengers());
     }
     @Test
-    public void canAddFlightToPassengerClass(){
+    public void canAddFlightNumToPassengerClass(){
         flight.addPassengerToFlight(passenger1);
-        assertEquals(flight, passenger1.getFlight());
+        assertEquals("FR756", passenger1.getFlight());
     }
 
 
