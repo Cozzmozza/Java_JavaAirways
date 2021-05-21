@@ -9,18 +9,14 @@ import java.util.ArrayList;
 
 public class Flight {
 
-//    private Pilot pilot;
-        // Do I want to take in a pilot here, or with the array list of cabin crew when we instance in the test?
-        // Since I've made Pilot inherit from CabinCrew, it makes sense to have the cabinCrew list contain the pilot
-        // Also allows us to add a second pilot easily
-    private ArrayList<CabinCrewMember> cabinCrew;
+
+    private ArrayList<CabinCrewMember> cabinCrew; // Pilot is included in cabin crew
     private Plane plane;
     private String flightNum;
     private String airportDestination;
     private String airportDeparture;
     private String timeDeparture;
     private ArrayList<Passenger> passengers; // Default is empty
-//    private ArrayList<Passenger> seats;
 
     public Flight(ArrayList<CabinCrewMember> cabinCrew, Plane plane, String flightNum, String airportDestination, String airportDeparture, String timeDeparture) {
         this.cabinCrew = cabinCrew;
@@ -30,7 +26,6 @@ public class Flight {
         this.airportDeparture = airportDeparture;
         this.timeDeparture = timeDeparture;
         this.passengers = new ArrayList<>();
-//        this.seats = new ArrayList<>();
     }
 
     public ArrayList<CabinCrewMember> getCabinCrew() {
@@ -61,10 +56,6 @@ public class Flight {
         return timeDeparture;
     }
 
-    public ArrayList<Passenger> getPassengers() {
-        return passengers;
-    }
-
     public int getPassengerCount(){
         return passengers.size();
     }
@@ -77,7 +68,9 @@ public class Flight {
 
     public void addPassengerToFlight(Passenger passenger) {
         if (!passengers.contains(passenger)) {
-            passengers.add(passenger);
+            if (getAvailableSeatsCount() >= 1) {
+                passengers.add(passenger);
+            }
         }
     }
 

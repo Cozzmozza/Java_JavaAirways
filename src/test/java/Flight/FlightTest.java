@@ -31,6 +31,7 @@ public class FlightTest {
     private Passenger passenger2;
     private Passenger passenger3;
     private Passenger passenger4;
+    private Passenger passenger5;
 
     private Flight flight;
 
@@ -48,6 +49,7 @@ public class FlightTest {
         passenger2 = new Passenger("Lauren", 2);
         passenger3 = new Passenger("Maxi", 3);
         passenger4 = new Passenger("Yogi", 1);
+        passenger5 = new Passenger("Toofy", 5);
 
         plane = new Plane(PlaneType.BIGPLANE99);
 
@@ -88,7 +90,16 @@ public class FlightTest {
         flight.addPassengerToFlight(passenger2);
         assertEquals(2, flight.getAvailableSeatsCount());
     }
-
+    @Test
+    public void cannotAddPassengerIfCapacityReached(){
+//        Also tests we can add a passenger at capacity extreme of 4
+        flight.addPassengerToFlight(passenger1);
+        flight.addPassengerToFlight(passenger2);
+        flight.addPassengerToFlight(passenger3);
+        flight.addPassengerToFlight(passenger4);
+        flight.addPassengerToFlight(passenger5);
+        assertEquals(4, flight.getPassengerCount());
+    }
     @Test
     public void canRemovePassengerFromFlightPassengers(){
         flight.addPassengerToFlight(passenger1);
@@ -103,13 +114,6 @@ public class FlightTest {
         flight.removePassengerFromFlight(passenger3);
         assertEquals(2, flight.getAvailableSeatsCount());
     }
-
-
-//    @Test
-//    public void bookedPassengerCount(){
-//        assertEquals([passenger1], flight.getPassengers());
-//    }
-
 
 
 //       GETTER tests
