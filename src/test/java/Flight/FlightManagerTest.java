@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,7 +20,7 @@ public class FlightManagerTest {
     private CabinCrewMember member1;
     private Pilot pilot1;
     private ArrayList<CabinCrewMember> crew;
-
+    private Date date;
     private Plane plane;
     private Passenger passenger1;
     private Passenger passenger2;
@@ -43,7 +44,8 @@ public class FlightManagerTest {
         passenger3 = new Passenger("Maxi", 3);
         passenger4 = new Passenger("Yogi", 1);
         plane = new Plane(PlaneType.BIGPLANE99);
-        flight = new Flight(crew, plane, "FR756", "LDN", "ABD", "08:00" );
+        date = new Date(2021, 5, 21, 16, 42);
+        flight = new Flight(crew, plane, "FR756", "LDN", "ABD", date );
 
         flightManager = new FlightManager(flight);
     }
